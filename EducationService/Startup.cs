@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EducationService.Service;
 
 namespace EducationService
 {
@@ -26,7 +27,7 @@ namespace EducationService
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-
+			services.AddSingleton<UserService>();
 			services.AddControllers();
 			services.AddSwaggerGen(c =>
 			{
@@ -49,7 +50,8 @@ namespace EducationService
 			app.UseRouting();
 
 			app.UseAuthorization();
-
+		
+			
 			app.UseEndpoints(endpoints =>
 			{
 				endpoints.MapControllers();
